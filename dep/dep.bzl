@@ -41,12 +41,12 @@ sh_binary(
     dep2bazel_path = ctx.path(ctx.attr._rules_go_dep).dirname
 
     # Build something that looks like a normal GOPATH so go install will work
-    ctx.symlink(dep2bazel_path, "src/github.com/scele/rules_go_dep")
+    ctx.symlink(dep2bazel_path, "src/github.com/kalbasit/rules_go_dep")
     env = {
         'GOROOT': str(go_tool.dirname.dirname),
         'GOPATH': str(ctx.path('')),
     }
-    result = env_execute(ctx, [go_tool, "install", "github.com/scele/rules_go_dep/dep2bazel"], environment = env)
+    result = env_execute(ctx, [go_tool, "install", "github.com/kalbasit/rules_go_dep/dep2bazel"], environment = env)
     if result.return_code:
         fail("failed to build dep2bazel: {}".format(result.stderr))
 

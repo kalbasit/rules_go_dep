@@ -27,7 +27,7 @@ var outputFilename = flag.String("o", "", "output filename")
 var outputGopathRoot = flag.String("gopath", "", "output gopath root")
 var bazelOutputRoot = flag.String("bazel-output-base", "", "bazel output base (obtained with \"bazel info output_base\")")
 var sourceDirectory = flag.String("source-directory", "", "source directory path")
-var goPrefix = flag.String("go-prefix", "", "go prefix (e.g. github.com/scele/rules_go_dep)")
+var goPrefix = flag.String("go-prefix", "", "go prefix (e.g. github.com/kalbasit/rules_go_dep)")
 
 // Lock represents the parsed Gopkg.toml file.
 type Lock struct {
@@ -70,7 +70,7 @@ func downloadFile(f *os.File, url string) (err error) {
 	return err
 }
 
-// github.com/scele/dep2bazel => com_github_scele_dep2bazel
+// github.com/kalbasit/dep2bazel => com_github_kalbasit_dep2bazel
 func bazelName(importpath string) string {
 	parts := strings.Split(importpath, "/")
 	hostparts := strings.Split(parts[0], ".")
